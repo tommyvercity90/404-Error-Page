@@ -1,0 +1,236 @@
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e1b4b, #312e81);
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* Main content */
+.error-container {
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    animation: fadeIn 1s ease;
+}
+
+/* Illustration area */
+.illustration {
+    height: 190px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+/* Planet illustration */
+.planet {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #a78bfa, #6366f1);
+    box-shadow: 0 0 45px rgba(139, 92, 246, 0.5);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: float 3s ease-in-out infinite;
+}
+
+.planet-face {
+    font-size: 35px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.crater {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: rgba(49, 46, 129, 0.35);
+}
+
+.crater-one {
+    top: 25px;
+    left: 22px;
+}
+
+.crater-two {
+    bottom: 22px;
+    right: 20px;
+}
+
+/* Decorative stars */
+.star {
+    position: absolute;
+    color: #fbbf24;
+    font-size: 30px;
+    animation: twinkle 1.5s ease-in-out infinite alternate;
+}
+
+.star-one {
+    top: 20px;
+    left: 20%;
+}
+
+.star-two {
+    top: 50px;
+    right: 17%;
+    animation-delay: 0.5s;
+}
+
+.star-three {
+    bottom: 15px;
+    left: 28%;
+    animation-delay: 0.8s;
+}
+
+/* Orbit around the planet */
+.orbit {
+    position: absolute;
+    width: 205px;
+    height: 65px;
+    border: 2px solid rgba(196, 181, 253, 0.6);
+    border-radius: 50%;
+    transform: rotate(-25deg);
+}
+
+/* Error heading */
+h1 {
+    font-size: clamp(80px, 18vw, 140px);
+    line-height: 1;
+    font-weight: 900;
+    letter-spacing: 8px;
+    color: #c4b5fd;
+    text-shadow: 0 0 35px rgba(167, 139, 250, 0.35);
+}
+
+h2 {
+    margin-top: 18px;
+    font-size: clamp(24px, 5vw, 32px);
+    color: #ffffff;
+}
+
+.error-container > p:not(.footer-text) {
+    max-width: 440px;
+    margin: 16px auto 28px;
+    color: #cbd5e1;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* Homepage button */
+.home-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 25px;
+    border-radius: 50px;
+    background: #a78bfa;
+    color: #1e1b4b;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.home-button:hover {
+    background: #c4b5fd;
+    transform: translateY(-4px);
+}
+
+.home-button:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 5px;
+}
+
+/* Footer text */
+.footer-text {
+    margin-top: 32px;
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+/* Animations */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+@keyframes twinkle {
+    from {
+        opacity: 0.4;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+    .illustration {
+        height: 160px;
+    }
+
+    .planet {
+        width: 105px;
+        height: 105px;
+    }
+
+    .orbit {
+        width: 170px;
+        height: 55px;
+    }
+
+    .error-container > p:not(.footer-text) {
+        font-size: 15px;
+    }
+
+    .home-button {
+        padding: 12px 20px;
+    }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
